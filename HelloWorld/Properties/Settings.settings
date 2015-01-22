@@ -1,0 +1,31 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DiscoSETools.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PassPortServiceName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PassPort (port forwarding)</Value>
+    </Setting>
+    <Setting Name="ScriptDirPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Public\Documents\se_backup</Value>
+    </Setting>
+    <Setting Name="BackupPrefixNameList" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;DiscoWorldCreative&lt;/string&gt;
+  &lt;string&gt;DiscoWorldSurvival&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="BackupFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Public\Documents\se_backup</Value>
+    </Setting>
+    <Setting Name="ArchiveSaveFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Public\Documents\se_backup</Value>
+    </Setting>
+    <Setting Name="BackupTaskName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SE Disco World Backup</Value>
+    </Setting>
+    <Setting Name="SteamServerJavaAppPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
