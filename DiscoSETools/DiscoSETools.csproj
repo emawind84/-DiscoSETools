@@ -138,6 +138,8 @@
     <None Include="Resources\space_engineers_black_1401.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="etc\discosetools_01.png" />
+    <Content Include="etc\discosetools_02.png" />
     <Content Include="SpaceEngineers.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
