@@ -153,13 +153,6 @@ namespace DiscoSETools
         /// <returns></returns>
         public static string GetSteamServerInfo(string addr, EventHandler<string> handler)
         {
-            string steamServerJavaAppPath = Properties.Settings.Default.SteamServerJavaAppPath;
-
-            if (String.IsNullOrEmpty(steamServerJavaAppPath))
-            {
-                return "Steam Server Application Path not set!";
-            }
-
             string scriptDir = Properties.Settings.Default.ScriptDirPath;
 
             Utils utils = new Utils();

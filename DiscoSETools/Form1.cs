@@ -26,16 +26,6 @@ namespace DiscoSETools
             InitializeComponent();
         }
 
-        
-
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
         /// <summary>
         /// MAIN FORM LOAD METHOD!
         /// </summary>
@@ -75,6 +65,12 @@ namespace DiscoSETools
             survivalServerStatusLabel.Text = Utils.StatusService("discoworld_survival");
         }
 
+        private void UpdateServicesStatus(object sender, string output)
+        {
+            //UpdateServicesStatus();
+            //throw new NotImplementedException();
+        }
+
         /// <summary>
         /// MANUAL BACKUP SERVER
         /// </summary>
@@ -82,11 +78,18 @@ namespace DiscoSETools
         /// <param name="e"></param>
         private void BackupButtonClick(object sender, EventArgs e)
         {
+            SetConsoleTextBox("START Manual Backup" + Environment.NewLine);
+
             string scriptDir = Properties.Settings.Default.ScriptDirPath;
 
-            var utils = new Utils();
-            utils.ExecuteCommand("cmd", String.Format("/C {0}\\backup.bat \"{1}\"", scriptDir, scriptDir));
-            consoleResultTextBox.Text = utils.Output;
+            ExecuteCommandThread thrd = new ExecuteCommandThread
+            {
+                CommandWithArgs = String.Format("/C {0}\\backup.bat \"{1}\"", scriptDir, scriptDir)
+            };
+            thrd.CommandExecuted += WriteResultOnConsole;
+
+            Thread oThread = new Thread(new ThreadStart(thrd.Execute) );
+            oThread.Start();
         }
 
         /// <summary>
@@ -96,6 +99,8 @@ namespace DiscoSETools
         /// <param name="e"></param>
         private void DailyArchiveButtonClick(object sender, EventArgs e)
         {
+            SetConsoleTextBox("START Daily Archive" + Environment.NewLine);
+
             DateTime dt = dailyArchiveDate.Value;
             string dts = dt.ToString("yyyy-MM-dd");
 
@@ -162,6 +167,7 @@ namespace DiscoSETools
                 Timeout = 5000
             };
             srvt.CompletedEvent += WriteResultOnConsole;
+            srvt.CompletedEvent += UpdateServicesStatus;
             Thread oThread = new Thread(new ThreadStart(srvt.Start));
             // Start the thread
             oThread.Start();
@@ -179,6 +185,7 @@ namespace DiscoSETools
                 Timeout = 5000
             };
             srvt.CompletedEvent += WriteResultOnConsole;
+            srvt.CompletedEvent += UpdateServicesStatus;
             Thread oThread = new Thread(new ThreadStart(srvt.Stop));
             // Start the thread
             oThread.Start();

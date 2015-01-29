@@ -96,6 +96,11 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
+    <None Include="etc\backup.bat" />
+    <None Include="etc\daily_archive.bat" />
+    <None Include="etc\disable_task_backup.bat" />
+    <None Include="etc\enable_task_backup.bat" />
+    <None Include="etc\steam_server_info.bat" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
