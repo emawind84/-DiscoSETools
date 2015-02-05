@@ -138,7 +138,7 @@ namespace DiscoSETools
             string backupTaskName = Properties.Settings.Default.BackupTaskName;
             var utils = new Utils();
             utils.ExecuteCommand("cmd", String.Format( "/C {0}\\disable_task_backup.bat \"{1}\"", Properties.Settings.Default.ScriptDirPath, backupTaskName ) );
-            consoleResultTextBox.Text = utils.Output;
+            SetConsoleTextBox(utils.Output);
         }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace DiscoSETools
             string backupTaskName = Properties.Settings.Default.BackupTaskName;
             var utils = new Utils();
             utils.ExecuteCommand("cmd", String.Format( "/C {0}\\enable_task_backup.bat \"{1}\"", Properties.Settings.Default.ScriptDirPath, backupTaskName) );
-            consoleResultTextBox.Text = utils.Output;
+            SetConsoleTextBox(utils.Output);
         }
 
         /// <summary>
