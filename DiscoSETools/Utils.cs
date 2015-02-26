@@ -8,10 +8,17 @@ using System.Threading;
 
 namespace DiscoSETools
 {
+    /// <summary>
+    /// <remarks>
+    /// Naming Conventions: 
+    /// https://msdn.microsoft.com/en-us/library/ms229043%28v=vs.110%29.aspx
+    /// http://www.dofactory.com/reference/csharp-coding-standards
+    /// </remarks>
+    /// </summary>
     class Utils
     {
-        private static System.IO.StreamWriter streamError = null;
-        private static String netErrorFile = "";
+        private static System.IO.StreamWriter stream = null;
+        private static String netLogFile = "C:\\Users\\Public\\Documents\\log\\discosetool.log";
         private StringBuilder output = new StringBuilder();
         private static bool errorRedirect = false;
         private static bool errorsWritten = false;
@@ -20,6 +27,8 @@ namespace DiscoSETools
         {
             get { return output.ToString(); }
         }
+
+        public abstract void CustomOutputHandler(Object processName, System.Diagnostics.DataReceivedEventArgs outLine);
 
         /// <summary>
         /// Execute command line process
@@ -51,9 +60,14 @@ namespace DiscoSETools
 
             process.EnableRaisingEvents = false;
             process.StartInfo = pStartInfo;
-            process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(OutputDataHandler);
 
+            
+            process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(OutputDataHandler);
             process.ErrorDataReceived += new System.Diagnostics.DataReceivedEventHandler(OutputDataHandler);
+
+            // LOG ON FILE
+            process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(StreamDataHandler);
+            process.ErrorDataReceived += new System.Diagnostics.DataReceivedEventHandler(StreamDataHandler);
 
             process.Start();
 
@@ -70,8 +84,6 @@ namespace DiscoSETools
 
             process.WaitForExit();
             process.Close();
-
-            //consoleResultTextBox.AppendText(output.ToString());
         }
 
         public void ExecuteCommand(string processName, string processArgs)
@@ -86,8 +98,6 @@ namespace DiscoSETools
         /// <param name="outLine"></param>
         private void OutputDataHandler(object sendingProcess, System.Diagnostics.DataReceivedEventArgs outLine)
         {
-            //output.Clear();
-
             // Collect the net view command output. 
             if (!String.IsNullOrEmpty(outLine.Data))
             {
@@ -95,53 +105,53 @@ namespace DiscoSETools
                 output.Append(outLine.Data + Environment.NewLine);
             }
 
-            Console.WriteLine("OutputDataHandler terminated");
+            //Console.WriteLine("OutputDataHandler terminated");
         }
 
         /// <summary>
         /// Write error handler to file for command line process
         /// </summary>
         /// <param name="sendingProcess"></param>
-        /// <param name="errLine"></param>
-        private void StreamErrorDataHandler(object sendingProcess, System.Diagnostics.DataReceivedEventArgs errLine)
+        /// <param name="outLine"></param>
+        private void StreamDataHandler(object sendingProcess, System.Diagnostics.DataReceivedEventArgs outLine)
         {
             // Write the error text to the file if there is something 
             // to write and an error file has been specified. 
 
-            if (!String.IsNullOrEmpty(errLine.Data))
+            if (!String.IsNullOrEmpty(outLine.Data))
             {
                 if (!errorsWritten)
                 {
-                    if (streamError == null)
+                    if (stream == null)
                     {
                         // Open the file. 
                         try
                         {
-                            streamError = new System.IO.StreamWriter(netErrorFile, true);
+                            stream = new System.IO.StreamWriter(netLogFile, true);
                         }
                         catch (Exception e)
                         {
-                            Console.WriteLine("Could not open error file!");
+                            Console.WriteLine("Could not open file!");
                             Console.WriteLine(e.Message.ToString());
                         }
                     }
 
-                    if (streamError != null)
+                    if (stream != null)
                     {
                         // Write a header to the file if this is the first 
                         // call to the error output handler.
-                        streamError.WriteLine();
-                        streamError.WriteLine(DateTime.Now.ToString());
-                        streamError.WriteLine("Net View error output:");
+                        stream.WriteLine();
+                        stream.WriteLine(DateTime.Now.ToString());
+                        stream.WriteLine("Net View output:");
                     }
                     errorsWritten = true;
                 }
 
-                if (streamError != null)
+                if (stream != null)
                 {
                     // Write redirected errors to the file.
-                    streamError.WriteLine(errLine.Data);
-                    streamError.Flush();
+                    stream.WriteLine(outLine.Data);
+                    stream.Flush();
                 }
             }
         }

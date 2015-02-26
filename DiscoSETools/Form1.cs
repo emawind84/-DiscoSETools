@@ -280,7 +280,7 @@ namespace DiscoSETools
         /// <param name="e"></param>
         private void CreativeStatusButtonClick(object sender, EventArgs e)
         {
-            consoleResultTextBox.AppendText(Utils.GetSteamServerInfo("203.239.21.69:27016", WriteResultOnConsole));
+            Utils.GetSteamServerInfo("203.239.21.69:27016", WriteResultOnConsole);
         }
 
         /// <summary>
@@ -290,7 +290,7 @@ namespace DiscoSETools
         /// <param name="e"></param>
         private void SurvivalStatusButtonClick(object sender, EventArgs e)
         {
-            consoleResultTextBox.AppendText(Utils.GetSteamServerInfo("203.239.21.69:27017", WriteResultOnConsole));
+            Utils.GetSteamServerInfo("203.239.21.69:27017", WriteResultOnConsole);
         }
 
         /// <summary>
