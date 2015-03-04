@@ -18,7 +18,7 @@ namespace DiscoSETools
     class Utils
     {
         private static System.IO.StreamWriter stream = null;
-        private static String netLogFile = "C:\\Users\\Public\\Documents\\log\\discosetool.log";
+        private static String netLogFile = Properties.Settings.Default.LogFilePath;
         private StringBuilder output = new StringBuilder();
         private static bool errorRedirect = false;
         private static bool errorsWritten = false;
@@ -28,7 +28,7 @@ namespace DiscoSETools
             get { return output.ToString(); }
         }
 
-        public abstract void CustomOutputHandler(Object processName, System.Diagnostics.DataReceivedEventArgs outLine);
+        //public abstract void CustomOutputHandler(Object processName, System.Diagnostics.DataReceivedEventArgs outLine);
 
         /// <summary>
         /// Execute command line process

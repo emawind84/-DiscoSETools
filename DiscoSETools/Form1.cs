@@ -49,6 +49,7 @@ namespace DiscoSETools
             archiveSaveFolderPathTextBox.Text = Properties.Settings.Default.ArchiveSaveFolderPath;
             backupFolderPathTextBox.Text = Properties.Settings.Default.BackupFolderPath;
             backupTaskNameTextBox.Text = Properties.Settings.Default.BackupTaskName;
+            logFilePathTextBox.Text = Properties.Settings.Default.LogFilePath;
 
             PrintProductVersion();
         }
@@ -210,6 +211,7 @@ namespace DiscoSETools
             Properties.Settings.Default.ArchiveSaveFolderPath = archiveSaveFolderPathTextBox.Text;
             Properties.Settings.Default.BackupFolderPath = backupFolderPathTextBox.Text;
             Properties.Settings.Default.BackupTaskName = backupTaskNameTextBox.Text;
+            Properties.Settings.Default.LogFilePath = logFilePathTextBox.Text;
 
             // save backup prefix name list
             SaveBackupPrefixName();

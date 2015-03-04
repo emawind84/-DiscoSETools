@@ -86,6 +86,8 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.serverStatusTimer = new System.Windows.Forms.Timer(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.logFilePathTextBox = new System.Windows.Forms.TextBox();
             this.tabSettings.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -521,16 +523,19 @@
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.passPortServiceNameTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.backupPrefixNameTextBox, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.logFilePathTextBox, 1, 6);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(430, 225);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(430, 255);
             this.tableLayoutPanel1.TabIndex = 26;
             // 
             // scriptFolderPathLabel
@@ -700,6 +705,24 @@
             this.serverStatusTimer.Interval = 60000;
             this.serverStatusTimer.Tick += new System.EventHandler(this.ServerStatusTimerTick);
             // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 233);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 13);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Log File Path";
+            // 
+            // logFilePathTextBox
+            // 
+            this.logFilePathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.logFilePathTextBox.Location = new System.Drawing.Point(143, 230);
+            this.logFilePathTextBox.Name = "logFilePathTextBox";
+            this.logFilePathTextBox.Size = new System.Drawing.Size(254, 20);
+            this.logFilePathTextBox.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -794,6 +817,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button consoleClearButton;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox logFilePathTextBox;
     }
 }
 

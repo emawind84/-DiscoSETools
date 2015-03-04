@@ -97,5 +97,17 @@ namespace DiscoSETools.Properties {
                 this["BackupTaskName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\Public\\\\Documents\\\\log\\\\discosetool.log")]
+        public string LogFilePath {
+            get {
+                return ((string)(this["LogFilePath"]));
+            }
+            set {
+                this["LogFilePath"] = value;
+            }
+        }
     }
 }

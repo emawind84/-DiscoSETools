@@ -24,5 +24,8 @@
     <Setting Name="BackupTaskName" Type="System.String" Scope="User">
       <Value Profile="(Default)">SE Disco World Backup</Value>
     </Setting>
+    <Setting Name="LogFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\\Users\\Public\\Documents\\log\\discosetool.log</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
