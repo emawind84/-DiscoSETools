@@ -82,12 +82,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.passPortServiceNameTextBox = new System.Windows.Forms.TextBox();
             this.backupPrefixNameTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.logFilePathTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.serverStatusTimer = new System.Windows.Forms.Timer(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.logFilePathTextBox = new System.Windows.Forms.TextBox();
             this.tabSettings.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -662,7 +662,6 @@
             this.label4.Size = new System.Drawing.Size(102, 13);
             this.label4.TabIndex = 21;
             this.label4.Text = "Backup Task Name";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // passPortServiceNameTextBox
             // 
@@ -681,6 +680,24 @@
             this.backupPrefixNameTextBox.Name = "backupPrefixNameTextBox";
             this.backupPrefixNameTextBox.Size = new System.Drawing.Size(254, 80);
             this.backupPrefixNameTextBox.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 233);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 13);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Log File Path";
+            // 
+            // logFilePathTextBox
+            // 
+            this.logFilePathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.logFilePathTextBox.Location = new System.Drawing.Point(143, 230);
+            this.logFilePathTextBox.Name = "logFilePathTextBox";
+            this.logFilePathTextBox.Size = new System.Drawing.Size(254, 20);
+            this.logFilePathTextBox.TabIndex = 24;
             // 
             // pictureBox1
             // 
@@ -704,24 +721,6 @@
             this.serverStatusTimer.Enabled = true;
             this.serverStatusTimer.Interval = 60000;
             this.serverStatusTimer.Tick += new System.EventHandler(this.ServerStatusTimerTick);
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 233);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 13);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Log File Path";
-            // 
-            // logFilePathTextBox
-            // 
-            this.logFilePathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.logFilePathTextBox.Location = new System.Drawing.Point(143, 230);
-            this.logFilePathTextBox.Name = "logFilePathTextBox";
-            this.logFilePathTextBox.Size = new System.Drawing.Size(254, 20);
-            this.logFilePathTextBox.TabIndex = 24;
             // 
             // Form1
             // 

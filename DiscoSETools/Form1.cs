@@ -373,11 +373,6 @@ namespace DiscoSETools
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// TIMER FOR SERVICE STATUS UPDATE
         /// </summary>
@@ -417,7 +412,9 @@ namespace DiscoSETools
             // If these threads are different, it returns true.
             if (this.consoleResultTextBox.InvokeRequired)
             {
-                SetConsoleTextBoxCallback d = new SetConsoleTextBoxCallback(SetConsoleTextBox);
+                //SetConsoleTextBoxCallback d = new SetConsoleTextBoxCallback(SetConsoleTextBox);
+                SetConsoleTextBoxCallback d = SetConsoleTextBox;
+
                 this.Invoke(d, new object[] { text });
             }
             else
