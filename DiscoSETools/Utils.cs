@@ -248,8 +248,8 @@ namespace DiscoSETools
             }
             catch (InvalidOperationException e)
             {
-                //Console.WriteLine("{0} Exception caught.", e);
-                return String.Format("{0} Exception caught.", e);
+                Console.WriteLine("{0} Exception caught.", e);
+                return "Service Failed";
             }
         }
     }
