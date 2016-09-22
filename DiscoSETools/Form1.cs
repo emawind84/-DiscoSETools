@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceProcess;
 using System.Threading;
+using System.Reflection;
 
 namespace DiscoSETools
 {
@@ -272,7 +273,8 @@ namespace DiscoSETools
 
         private void PrintProductVersion()
         {
-            versionLabel.Text = "Version: " + Application.ProductVersion;
+            //String copy = ((AssemblyCopyrightAttribute)Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof(AssemblyCopyrightAttribute), false)).Copyright;
+            versionLabel.Text = "v. " + Application.ProductVersion;
         }
 
         /// <summary>
